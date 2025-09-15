@@ -1,0 +1,7 @@
+node_modules
+package.json
+tsconfig.json
+pnpm-lock.yaml
+.next
+next-env.d.ts
+.vscode/settings.json
