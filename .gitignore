@@ -1,7 +1,18 @@
-node_modules
+# dependencies (I think)
+/node_modules
+/.pnp
+.pnp.js
+/node_modules
 package.json
 tsconfig.json
-pnpm-lock.yaml
 .next
 next-env.d.ts
+
+# testing
+/coverage
+
+# production
+/build
+
+pnpm-lock.yaml
 .vscode/settings.json
