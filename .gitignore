@@ -3,8 +3,6 @@
 /.pnp
 .pnp.js
 /node_modules
-package.json
-tsconfig.json
 .next
 next-env.d.ts
 
@@ -16,3 +14,4 @@ next-env.d.ts
 
 pnpm-lock.yaml
 .vscode/settings.json
+.env.local
