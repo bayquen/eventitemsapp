@@ -25,3 +25,31 @@ async function getEvent(slug: string) {
 
     return { ...event, items: items || [] }    // Combine event + items into one object 
 }
+
+export default async function EventPage({ params }: PageProps) {
+    const event = await getEvent(params.slug)
+
+    if (!event) {
+        notFound()  // Trigger 404 page if event doesn't exist
+    }
+
+    const eventDate = event.date 
+    ? new Date(event.date).toLocaleString('en-US;', {   // Convert timestamp to readable format
+        weekday: 'long',    // e.g. "Saturday"
+        month: 'long',      //      "March"
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit'
+    })
+    : null    // Set to null if no date
+
+    return (
+        <div>
+            {/* SECTION: Event Header (yayy) */}
+            <h1>{event.name}</h1>
+            {event.description && <p>...</p>}
+            {eventDate && <div>📅 {eventDate}</div>}
+            {event.location && <div>...</div>}
+        </div>
+    )
+}
