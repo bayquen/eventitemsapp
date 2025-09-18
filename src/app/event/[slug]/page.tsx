@@ -44,12 +44,39 @@ export default async function EventPage({ params }: PageProps) {
     : null    // Set to null if no date
 
     return (
-        <div>
-            {/* SECTION: Event Header (yayy) */}
-            <h1>{event.name}</h1>
-            {event.description && <p>...</p>}
-            {eventDate && <div>📅 {eventDate}</div>}
-            {event.location && <div>...</div>}
+        <div className="min-h-screen bg-gray-50 py-8 px-4">
+            <div className="max-w-4xl mx-auto">
+                
+                <div className= "bg-white rounded-lg shadow-md p-6 mb-6">
+                    {/* SECTION: Event Header (yayy) */}
+                    <h1 className="text-3xl font-bold text-gray-900 mb-4">{event.name}</h1>
+
+                    {event.description && (
+                        <p className="text-gray-700 mb-4">{event.description}</p>
+                    )}
+
+                    <div className="space-y-2 text-gray-600">
+                        {eventDate && (
+                            <div className="flex-items-center">
+                                <span className="font-semibold mr-2">📅 When:</span>
+                                <span>{eventDate}</span>
+                            </div>
+                        )}
+
+                        {event.location && (
+                            <div className="flex-items-center">
+                                <span className="font-semibold mr-2">📍 Where:</span>
+                                <span>{event.location}</span>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* SECTION: Share Link (yayyy) */}
+                    
+
+                </div>
+
+            </div>
         </div>
     )
 }
