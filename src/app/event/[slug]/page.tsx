@@ -1,5 +1,6 @@
 import { supabase } from '@/lib/supabase';
 import { notFound } from 'next/navigation';    // to show 404 page as needed
+import ShareButton from './ShareButton';
 
 interface PageProps {   // Defines that this page receives URL params w/ a slug
     params: Promise<{ slug: string }>   // Change for Next.js 15: Now a Promise for asynchronous operations
@@ -83,14 +84,7 @@ export default async function EventPage({ params }: PageProps) {
                             value={`${typeof window !== 'undefined' ? window.location.origin : ''}/event/${event.url_slug}`}
                             className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded text-sm"
                             />    
-                            <button
-                                onClick={() => {
-                                    navigator.clipboard.writeText(`${window.location.origin}/event/${event.url_slug}`)
-                                }}
-                                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm font-medium"
-                            >
-                                Copy
-                            </button>                
+                            <ShareButton url={`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/event/${event.url_slug}`} />          
                         </div>
                     </div>
                 </div>
