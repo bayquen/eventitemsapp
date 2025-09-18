@@ -4,12 +4,12 @@ import { NextResponse } from 'next/server'
 
 // Generate random URL slug
 function generateSlug() {
-  const adjectives = ['happy', 'cool', 'fun', 'epic', 'super', 'fire', 'sweet']
-  const nouns = ['baby', 'event', 'gathering', 'meetup', 'hangout', 'banger']
+  const firstWords = ['happy', 'vibey', 'nonchalant', 'saucy', 'cool', 'fun', 'epic', 'super', 'fire', 'sweet']
+  const secondWords = ['bear', 'cat', 'puppy', 'parrot', 'dog', 'sloth', 'python', 'owl', 'tiger', 'eagle']
   const random = Math.floor(Math.random() * 10000)
-  const adj = adjectives[Math.floor(Math.random() * adjectives.length)]
-  const noun = nouns[Math.floor(Math.random() * nouns.length)]
-  return `${adj}-${noun}-${random}`
+  const first = firstWords[Math.floor(Math.random() * firstWords.length)]
+  const second = secondWords[Math.floor(Math.random() * secondWords.length)]
+  return `${first}-${second}-${random}`
 }
 
 // Generate host edit code
