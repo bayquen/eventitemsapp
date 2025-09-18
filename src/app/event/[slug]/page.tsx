@@ -2,7 +2,7 @@ import { supabase } from '@/lib/supabase';
 import { notFound } from 'next/navigation';    // to show 404 page as needed
 
 interface PageProps {   // Defines that this page receives URL params w/ a slug
-    params: { slug: string }
+    params: Promise<{ slug: string }>   // Change for Next.js 15: Now a Promise for asynchronous operations
 }
 
 async function getEvent(slug: string) {
@@ -27,7 +27,8 @@ async function getEvent(slug: string) {
 }
 
 export default async function EventPage({ params }: PageProps) {
-    const event = await getEvent(params.slug)
+    const { slug } = await params         // Add: Await the params (Next.js 15)
+    const event = await getEvent(slug)    // Use slug directly
 
     if (!event) {
         notFound()  // Trigger 404 page if event doesn't exist
