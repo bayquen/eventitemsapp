@@ -51,7 +51,7 @@ export default async function EventPage({ params }: PageProps) {
             <div className="max-w-4xl mx-auto">
                 
                 <div className= "bg-white rounded-lg shadow-md p-6 mb-6">
-                    {/* SECTION: Event Header (yayy) */}
+                    {/* SECTION: Event Header (YAYY) */}
                     <h1 className="text-3xl font-bold text-gray-900 mb-4">{event.name}</h1>
 
                     {event.description && (
@@ -74,7 +74,7 @@ export default async function EventPage({ params }: PageProps) {
                         )}
                     </div>
 
-                    {/* SECTION: Share Link (yayyy) */}
+                    {/* SECTION: Share Link (YAYYY) */}
                     <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                         <p className="text-sm font-semibold text-gray-700 mb-2">Share this event:</p>
                         <div className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export default async function EventPage({ params }: PageProps) {
                     </div>
                 </div>
                 
-                {/* SECTION: Items */}
+                {/* SECTION: Items (YAYYY)*/}
                 <div className="bg-white rounded-lg shadow-md p-6">
                     <div className="flex justify-between items-center mb-6">
                         <h2 className="text-2xl font-bold text-gray-900">Items Needed</h2>
