@@ -61,14 +61,14 @@ export default async function EventPage({ params }: PageProps) {
                     <div className="space-y-2 text-gray-600">
                         {eventDate && (
                             <div className="flex-items-center">
-                                <span className="font-semibold mr-2">📅 When:</span>
+                                <span className="font-semibold mr-2">📅 When: </span>
                                 <span>{eventDate}</span>
                             </div>
                         )}
 
                         {event.location && (
                             <div className="flex-items-center">
-                                <span className="font-semibold mr-2">📍 Where:</span>
+                                <span className="font-semibold mr-2">📍 Where: </span>
                                 <span>{event.location}</span>
                             </div>
                         )}
