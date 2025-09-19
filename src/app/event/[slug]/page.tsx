@@ -1,8 +1,9 @@
 import { supabase } from '@/lib/supabase';
 import { notFound } from 'next/navigation';    // to show 404 page as needed
 import ShareButton from './ShareButton';
+import EventDate from './EventDate';
 
-interface PageProps {   // Defines that this page receives URL params w/ a slug
+interface PageProps {                   // Defines that this page receives URL params w/ a slug
     params: Promise<{ slug: string }>   // Change for Next.js 15: Now a Promise for asynchronous operations
 }
 
@@ -35,16 +36,16 @@ export default async function EventPage({ params }: PageProps) {
         notFound()  // Trigger 404 page if event doesn't exist
     }
 
-    const eventDate = event.date 
-    ? new Date(event.date).toLocaleString('en-US', {   // Convert timestamp to readable format
-        weekday: 'long',    // e.g. "Saturday"
-        year: 'numeric',
-        month: 'long',      // e.g. "March"
-        day: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit'
-        })
-    : null    // Set to null if no date
+    // <div className="space-y-2 text-gray-600">
+    //     <EventDate date={event.date} />
+
+    //     {event.location && (
+    //         <div className="flex items-center">
+    //             <span className="font-semibold mr-2">📍 </span>
+    //             <span>{event.location}</span>
+    //         </div>
+    //     )}
+    // </div>
 
     return (
         <div className="min-h-screen bg-gray-50 py-8 px-4">
@@ -59,20 +60,15 @@ export default async function EventPage({ params }: PageProps) {
                     )}
 
                     <div className="space-y-2 text-gray-600">
-                        {eventDate && (
-                            <div className="flex-items-center">
-                                <span className="font-semibold mr-2">📅 When: </span>
-                                <span>{eventDate}</span>
-                            </div>
-                        )}
+                        <EventDate date={event.date} />
 
-                        {event.location && (
-                            <div className="flex-items-center">
-                                <span className="font-semibold mr-2">📍 Where: </span>
-                                <span>{event.location}</span>
-                            </div>
-                        )}
-                    </div>
+                    {event.location && (
+                        <div className="flex-items-center">
+                            <span className="font-semibold mr-2">📍 </span>
+                            <span>{event.location}</span>
+                        </div>
+                    )}
+                </div>
 
                     {/* SECTION: Share Link (YAYYY) */}
                     <div className="mt-6 p-4 bg-blue-50 rounded-lg">
