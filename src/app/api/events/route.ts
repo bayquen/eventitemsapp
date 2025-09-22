@@ -35,6 +35,7 @@ export async function POST(request: Request) {
       name: body.name,
       description: body.description || null,
       date: body.date || null,
+      time: body.time || null,
       location: body.location || null,
       url_slug: generateSlug(),               // Guaranteed unique
       host_edit_code: generateEditCode()      // Also guaranteed unique

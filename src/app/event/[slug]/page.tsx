@@ -32,6 +32,7 @@ export default async function EventPage({ params }: PageProps) {
     const { slug } = await params         // Add: Await the params (Next.js 15)
     const event = await getEvent(slug)    // Use slug directly
 
+
     if (!event) {
         notFound()  // Trigger 404 page if event doesn't exist
     }
@@ -60,7 +61,7 @@ export default async function EventPage({ params }: PageProps) {
                     )}
 
                     <div className="space-y-2 text-gray-600">
-                        <EventDate date={event.date} />
+                        <EventDate date={event.date} time={event.time} />
 
                     {event.location && (
                         <div className="flex-items-center">
