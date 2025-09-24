@@ -1,7 +1,11 @@
+// 'use client';
 import { supabase } from '@/lib/supabase';
 import { notFound } from 'next/navigation';    // to show 404 page as needed
+// import { useState } from 'react';
 import ShareButton from './ShareButton';
 import EventDate from './EventDate';
+import AddItemModal from './AddItemModal';
+import AddItemButton from './AddItemButton'
 
 interface PageProps {                   // Defines that this page receives URL params w/ a slug
     params: Promise<{ slug: string }>   // Change for Next.js 15: Now a Promise for asynchronous operations
@@ -31,22 +35,11 @@ async function getEvent(slug: string) {
 export default async function EventPage({ params }: PageProps) {
     const { slug } = await params         // Add: Await the params (Next.js 15)
     const event = await getEvent(slug)    // Use slug directly
-
+    // const [showAddModal, setShowAddModal] = useState(false)
 
     if (!event) {
         notFound()  // Trigger 404 page if event doesn't exist
     }
-
-    // <div className="space-y-2 text-gray-600">
-    //     <EventDate date={event.date} />
-
-    //     {event.location && (
-    //         <div className="flex items-center">
-    //             <span className="font-semibold mr-2">📍 </span>
-    //             <span>{event.location}</span>
-    //         </div>
-    //     )}
-    // </div>
 
     return (
         <div className="min-h-screen bg-gray-50 py-8 px-4">
@@ -90,9 +83,7 @@ export default async function EventPage({ params }: PageProps) {
                 <div className="bg-white rounded-lg shadow-md p-6">
                     <div className="flex justify-between items-center mb-6">
                         <h2 className="text-2xl font-bold text-gray-900">Items Needed</h2>
-                        <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 font-medium">
-                            + Add Item
-                        </button>
+                        <AddItemButton eventId={event.id} />
                     </div>
                     
                     {event.items.length === 0 ? (
