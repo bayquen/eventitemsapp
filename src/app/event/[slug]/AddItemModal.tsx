@@ -42,7 +42,7 @@ export default function AddItemModal({ eventId, isOpen, onClose }: AddItemModalP
                 body: JSON.stringify({
                     event_id: eventId,
                     ...formData,
-                    quantity: parseInt(formData.quantity)
+                    quantity: parseInt(formData.quantity)    // Convert str input --> num since DB expects num
                 })
             })
 
