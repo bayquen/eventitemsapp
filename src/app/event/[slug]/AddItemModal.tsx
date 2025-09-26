@@ -40,6 +40,7 @@ export default function AddItemModal({ eventId, isOpen, onClose }: AddItemModalP
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
+                    event_id: eventId,
                     ...formData,
                     quantity: parseInt(formData.quantity)
                 })

@@ -109,16 +109,16 @@ export default async function EventPage({ params }: PageProps) {
                                                 <div>
                                                     <span className="font-medium">{item.name}</span>
                                                     {item.quantity > 1 && (
-                                                        <span className="text-sm text-gray-500 ml-2">(x{item.quantity})</span>
+                                                        <span className="text-sm text-gray-500 ml-2"> (x{item.quantity})</span>
                                                     )}
                                                     {item.notes && (
-                                                        <p className="text-sm text-gray-600 mt-1">{item.notes}</p>
+                                                        <p className="text-sm text-gray-600 mt-1">Description: {item.notes}</p>
                                                     )}
                                                 </div>
                                                 <div>
                                                     {item.claimed_by ? (
                                                         <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-                                                            ✓ {item.claimed_by}
+                                                            Claimed by: {item.claimed_by} ✓
                                                         </span>
                                                     ) : (
                                                         <button className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm hover:bg-blue-200">
