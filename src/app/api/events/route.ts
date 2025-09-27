@@ -6,7 +6,7 @@ import { customAlphabet } from 'nanoid';    // NanoID package is for production-
 // Generate unique URL slug upon creation of an event
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789');   // custom alphanumeric URL generation, 2nd param is char length of slug URL
 // Make lists of fun words to use for slug URL generation
-const firstWords = ['cringey', 'vibey', 'nonchalant', 'saucy', 'cool', 'fun', 'swaggy', 'performative', 'auraful', 'super', 'demure', 'rowdy', 'fire', 'sweet', 'salty'];
+const firstWords = ['cringey', 'vibey', 'nonchalant', 'saucy', 'chill', 'goofy', 'swaggy', 'explosive', 'performative', 'auraful', 'super', 'demure', 'rowdy', 'fire', 'sweet', 'salty'];
 const secondWords = ['grizzly', 'cat', 'chimp', 'parrot', 'puppy', 'husky', 'shiba', 'sloth', 'dragon', 'tortoise', 'tiger', 'eagle', 'wolf', 'armadillo', 'gorilla'];
 // For slug URL concatenation:
 const firstWord = firstWords[Math.floor(Math.random() * firstWords.length)];
